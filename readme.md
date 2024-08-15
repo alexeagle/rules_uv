@@ -61,6 +61,8 @@ Create a virtual environment with default path `venv` by running `bazel run //:c
 
 The created venv will use the default Python 3 runtime defined in rules_python.
 
+Note: The resulting virtual environment doesn't link to first-party packages in a monorepo. Consider [rules_py](https://github.com/aspect-build/rules_py) which provides this feature, and creates a virtualenv target for every `py_binary` and `py_test` target. Like `uv`, it uses a very fast Rust binary to create the venv dynamically for every execution.
+
 ## Multi-platform setup
 
 `uv` supports generating platform-specific requirements files, and `rules_uv` exposes this configuration, and a multi-platform setup might look like this:
